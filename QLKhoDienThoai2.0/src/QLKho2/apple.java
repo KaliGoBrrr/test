@@ -9,8 +9,8 @@ public class apple extends dienThoai{
    public apple(){
        super();
    }
-   public apple(String tenDT,int namSX, int moDel, int soLuong, int loaiIP, String maIP){
-       super(tenDT, namSX, moDel, soLuong);
+   public apple(String tenDT,int namSX, int soLuong, int loaiIP, String maIP){
+       super(tenDT, namSX, soLuong);
        this.loaiIP=loaiIP;
        this.maIP=maIP;
    }
@@ -39,6 +39,8 @@ public class apple extends dienThoai{
     public void nhap(){
         Scanner sc = new Scanner(System.in);
         super.nhap();
+        System.out.println("Nhap maIP cua dien thoai Iphone: ");
+        maIP = sc.nextLine();
         System.out.println("Loai Iphone(iphone lock: 1/iphone thuong: 0)");
         loaiIP = sc.nextInt();
     }

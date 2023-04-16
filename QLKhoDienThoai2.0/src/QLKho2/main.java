@@ -18,30 +18,38 @@ n= sc.nextInt();
 switch(n)
 {
 case 1 -> {
-
 b= new samSung();
 a.themDSdienthoai(b);
 break;
 }
-case 2 -> {
 
+case 2 -> {
 b= new apple();
 a.themDSdienthoai(b);
+break;
 }
+
 case 3 -> {   
 a.hienDSSamSung();
 break;
 }
+
 case 4 -> {
-
 a.hienDSApple();
-}
-case 5 -> {
-a.SuaDoi();
+break;
 }
 
-default ->      {
-                }
+case 5 -> {
+a.hienDS();
+break;
+}
+
+case 6 -> {
+a.SuaDoi();
+break;
+}
+
+default->{}
 }
 }
 while(n!=0);

@@ -10,8 +10,8 @@ public class samSung extends dienThoai{
     public samSung(){
     super();
     }
-    public samSung(String tenDT,int namSX, int moDel, int soLuong, int chucNangSuDung, int loaiManHinh, String maSS){
-        super(tenDT, namSX, moDel, soLuong);
+    public samSung(String tenDT,int namSX, int soLuong, int chucNangSuDung, int loaiManHinh, String maSS){
+        super(tenDT, namSX, soLuong);
         this.chucNangSuDung=chucNangSuDung;
         this.loaiManHinh=loaiManHinh;
         this.maSS=maSS;
@@ -53,6 +53,8 @@ public class samSung extends dienThoai{
     public void nhap(){
         Scanner sc = new Scanner(System.in);
         super.nhap();
+        System.out.println("Nhap maSS cua dien thoai Samsung: ");
+        maSS = sc.nextLine();
         System.out.println("Chuc nang su dung(Gaming phone: 1/Tac vu thong thuong: 0)");
         chucNangSuDung = sc.nextInt();
         System.out.println("Loai man hinh(man hinh gap: 1/ man hinh phang: 0)");
