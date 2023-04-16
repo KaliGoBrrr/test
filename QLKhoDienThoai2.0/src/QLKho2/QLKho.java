@@ -298,7 +298,7 @@ public void TongSoLuongConLai()
             tongPhieu += y.getSoLuong();
         }
         int conLai = tongKM - tongPhieu;
-        System.out.println("Tong So luong may tinh con Lai: " + conLai);
+        System.out.println("Tong So luong dien thoai con Lai: " + conLai);
     }
     
 public void menuChinh() {
