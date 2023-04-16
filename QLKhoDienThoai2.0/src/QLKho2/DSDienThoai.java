@@ -22,59 +22,6 @@ dt.nhap();
 dsdienthoai.add(dt);
 }
 }
-public void menuSuaDoi() {
-System.out.println("-------------Mời bạn lựa chọn -----------");
-System.out.println("1. Sua thong tin dien thoai samsung");
-System.out.println("2. Xoa Samsung");
-System.out.println("3. Sua thong tin apple");
-System.out.println("4. Xoa apple");
-System.out.println("----------- Chọn số 0 để thoát ----------");
-}
-public void SuaDoi() {
-Scanner sc = new Scanner(System.in);
-int n;
-do {
-menuSuaDoi();
-System.out.print("Chọn: ");
-n = sc.nextInt();
-switch (n) {
-case 1: {
-String sbd;
-System.out.print("Nhập SBD của thí sinh cần sửa: ");
-sc.nextLine();
-sbd = sc.nextLine();
-suaSamSung(sbd);
-break;
-}
-case 2: {
-String sbd;
-System.out.print("Nhập SBD của thí sinh cần sửa: ");
-sc.nextLine();
-sbd = sc.nextLine();
-xoaSamSung(sbd);
-break;
-}
-case 3: {
-String maGT;
-System.out.print("Nhập mã giám thị cần sửa thông tin: ");
-sc.nextLine();
-maGT = sc.nextLine();
-suaApple(maGT);
-break;
-}
-case 4: {
-String maGT;
-System.out.print("Nhập mã giám thị cần sửa thông tin: ");
-sc.nextLine();
-maGT = sc.nextLine();
-xoaApple(maGT);
-break;
-}
-default:
-break;
-}
-} while (n != 0);
-}
 public void suaSamSung(String maSS) {
 for (dienThoai x : dsdienthoai) {
 if (x instanceof samSung) {

@@ -7,6 +7,7 @@ public class main {
     public static void main(String[] args) {
         QLKho a = new QLKho();
         dienThoai b;
+        Phieu c;
         int n;
         Scanner sc = new Scanner(System.in);
 
@@ -48,7 +49,28 @@ case 6 -> {
 a.SuaDoi();
 break;
 }
-
+case 7 -> {
+c = new PhieuNhapKho();
+a.themDSPhieu(c);
+break;
+}
+case 8 -> {
+c = new PhieuXuatKho();
+a.themDSPhieu(c);
+break;
+}
+case 9 -> {
+a.hienDanhSachPhieuNhapKho();
+break;
+}
+case 10 -> {
+a.hienDanhSachPhieuXuatKho();
+break;
+}
+case 11 -> {
+a.SuaDoiPhieu();
+break;
+}
 default->{}
 }
 }

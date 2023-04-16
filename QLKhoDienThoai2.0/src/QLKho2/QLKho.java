@@ -5,8 +5,10 @@ import java.util.Scanner;
 
 public class QLKho {
     ArrayList<dienThoai>dsdienthoai;
+    ArrayList <Phieu> phieu;
    public QLKho(){
        dsdienthoai = new ArrayList<>();
+       phieu = new ArrayList<>();
    }
 public void themDSdienthoai(dienThoai dt){
        Scanner sc = new Scanner(System.in);
@@ -144,7 +146,161 @@ if (x instanceof samSung) {
 }
 }
 }
+public void themDSPhieu(Phieu a)
+    {
+        Scanner ds = new Scanner(System.in);
+        System.out.print("\nNhap So Luong Can Them: "); int n = ds.nextInt();
+        for (int i=0; i<n; i++)
+        {
+            System.out.println("\nLan them thu " + (i+1) + ": ");
+            if (a instanceof PhieuNhapKho)
+            {
+                a = new PhieuNhapKho();
+                a.nhapThongTin();
+            }
+            else if (a instanceof PhieuXuatKho)
+            {
+                a = new PhieuXuatKho();
+                a.nhapThongTin();
+            }
+            phieu.add(a);
+        }
+    }
+public void hienDSPhieu(Phieu a)
+    {
+        System.out.println();
+        for (Phieu y: phieu)
+        {
+            y.xuatThongTin();
+        }
+    }
 
+    public void suaPhieuNhapKho(String maPhieu)
+    {
+        for (Phieu y: phieu)
+        {
+            if (y instanceof PhieuNhapKho)
+            {
+                if (((PhieuNhapKho) y).getMaPhieu().compareTo(maPhieu) == 0)
+                {
+                    y.nhapThongTin();
+                }
+            }
+        }
+    }
+
+    public void xoaPhieuNhapKho(String maPhieu)
+    {
+        for (Phieu y: phieu)
+        {
+            if (y instanceof PhieuNhapKho)
+            {
+                if (((PhieuNhapKho) y).getMaPhieu().compareTo(maPhieu) == 0)
+                {
+                    phieu.remove(y);
+                }
+            }
+        }
+    }
+
+    public void suaPhieuXuatKho(String maPhieu)
+    {
+        for (Phieu y: phieu)
+        {
+            if (y instanceof PhieuXuatKho)
+            {
+                if (((PhieuXuatKho) y).getMaPhieu().compareTo(maPhieu) == 0)
+                {
+                    y.nhapThongTin();
+                }
+            }
+        }
+    }
+
+    public void xoaPhieuXuatKho(String maPhieu)
+    {
+        for (Phieu y: phieu)
+        {
+            if (y instanceof PhieuXuatKho)
+            {
+                if (((PhieuXuatKho) y).getMaPhieu().compareTo(maPhieu) == 0)
+                {
+                    phieu.remove(y);
+                }
+            }
+        }
+    }
+
+    public void hienDSPhieuNhapKho(Phieu a)
+    {
+        System.out.println();
+        for (Phieu y: phieu)
+        {
+            if (y instanceof PhieuNhapKho)
+            {
+                y.xuatThongTin();
+            }
+        }
+    }
+
+    public void hienDanhSachPhieuNhapKho()
+    {
+        for (Phieu y: phieu)
+        {
+            if (y instanceof PhieuNhapKho)
+            {
+                ((PhieuNhapKho) y).xuatThongTin();
+            }
+        }
+    }
+
+    public void hienDanhSachPhieuXuatKho()
+    {
+        for (Phieu y: phieu)
+        {
+            if (y instanceof PhieuXuatKho)
+            {
+                ((PhieuXuatKho) y).xuatThongTin();
+            }
+        }
+        TongSoLuongConLai();
+    }
+
+    public void hienDSPhieuXuatKho(Phieu a)
+    {
+        System.out.println();
+        for (Phieu y: phieu)
+        {
+            if (y instanceof PhieuXuatKho)
+            {
+                y.xuatThongTin();
+            }
+        }
+    }
+
+    public void hienDanhSachPhieu()
+    {
+        for (Phieu y: phieu)
+        {
+            y.xuatThongTin();
+        }
+    }
+public void TongSoLuongConLai()
+    {
+        int tongKM = 0;
+        int tongPhieu = 0;
+        for (dienThoai x: dsdienthoai)
+        {
+            tongKM += x.getSoLuong();
+        }
+        for (Phieu y: phieu)
+        {
+            tongPhieu += y.getSoLuong();
+        }
+        int conLai = tongKM - tongPhieu;
+        System.out.println("Tong So luong may tinh con Lai: " + conLai);
+    }
+    
 public void menuChinh() {
 System.out.println("------CHUONG TRINH QUAN LY KHO DIEN THOAI CAO CAP------");
 System.out.println("1. Nhap danh sach dien thoai samsung");
@@ -152,7 +308,70 @@ System.out.println("2. Nhap danh sach dien thoai apple");
 System.out.println("3. Hien thi danh sach samsung");
 System.out.println("4. Hien thi danh sach apple");
 System.out.println("5. Hien thi danh sach dien thoai");
-System.out.println("6. Menu sua doi");
+System.out.println("6. Menu sua doi kho");
+System.out.println("7. Nhap Phieu nhap kho");
+System.out.println("8. Nhap Phieu xuat kho");
+System.out.println("9. Hien DS Phieu nhap kho");
+System.out.println("10. Hien DS Phieu xuat kho");
+System.out.println("11. Menu sua doi phieu");
 System.out.println("-----Nhan phim 0 de thoat khoi chuong trinh, xin cam on!-----");
 }
+
+public void menuSuaDoiPhieu() {
+        System.out.println("|---------------------------------------------|");
+        System.out.println("|        MENU THAY DOI THONG TIN PHIEU        |");
+        System.out.println("|=============================================|");
+        System.out.println("|1. Sua Thong Tin Phieu Nhap Kho              |");
+        System.out.println("|2. Xoa Thong Tin Phieu Nhap Kho              |");
+        System.out.println("|3. Sua Thong Tin Phieu Xuat Kho              |");
+        System.out.println("|4. Xoa Thong Tin Phieu Xuat Kho              |");
+        System.out.println("|=============================================|");
+        System.out.println("|             Bam phim 0 de thoat             |");
+        System.out.println("|---------------------------------------------|");
+    }
+    public void SuaDoiPhieu()
+    {
+        Scanner sd = new Scanner(System.in);
+        int chon;
+        menuSuaDoiPhieu();
+        do
+        {
+            System.out.print("\nVui Long Lua Chon: "); chon = sd.nextInt();
+            switch (chon)
+            {
+                case 1:
+                {
+                    String maPhieu;
+                    System.out.print("\nNhap Ma Phieu Nhap Kho: ");
+                    sd.nextLine();
+                    maPhieu = sd.nextLine();
+                    suaPhieuNhapKho(maPhieu);
+                } break;
+                case 2:
+                {
+                    String maPhieu;
+                    System.out.print("\nNhap Ma Phieu Nhap Kho: ");
+                    sd.nextLine();
+                    maPhieu = sd.nextLine();
+                    xoaPhieuNhapKho(maPhieu);
+                } break;
+                case 3:
+                {
+                    String maPhieu;
+                    System.out.print("\nNhap Ma Phieu Xuat Kho: ");
+                    sd.nextLine();
+                    maPhieu = sd.nextLine();
+                    suaPhieuXuatKho(maPhieu);
+                } break;
+                case 4:
+                {
+                    String maPhieu;
+                    System.out.print("\nNhap Ma Phieu Xuat Kho: ");
+                    sd.nextLine();
+                    maPhieu = sd.nextLine();
+                    xoaPhieuXuatKho(maPhieu);
+                } break;
+            }
+        } while(chon != 0);
+    }
 }

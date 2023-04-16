@@ -2,7 +2,7 @@
 package QLKho2;
 
 import java.util.Scanner;
-public class dienThoai {
+public class dienThoai{
     private String tenDT;
     private int namSX;
     private int soLuong;
@@ -51,4 +51,6 @@ public class dienThoai {
         System.out.print("{ten dien thoai: "+ getTenDT() + ", nam san xuat: "+
 getNamSX() +", so luong: "+ getSoLuong() + "}");
     }
+
+    
 }
